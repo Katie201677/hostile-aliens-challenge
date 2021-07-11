@@ -1,0 +1,24 @@
+{
+  "name": "hostile-aliens-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
+    "jest": "^27.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Katie201677/hostile-aliens-challenge.git"
+  },
+  "author": "Katie Walker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Katie201677/hostile-aliens-challenge/issues"
+  },
+  "homepage": "https://github.com/Katie201677/hostile-aliens-challenge#readme"
+}
