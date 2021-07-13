@@ -15,3 +15,7 @@
 .destroyed {
   background-colour: blue;
 }
+
+.gameOver {
+  display: none;
+}

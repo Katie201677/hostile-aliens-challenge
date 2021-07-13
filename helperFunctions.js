@@ -13,12 +13,17 @@ export const generateRandomShipNumber = (max) => {
 
 export const checkIfGameOver = (shipArray) => {
   if (shipArray[0].isDestroyed ) {
-    console.log("Game Over");
-  } else for (let i=0; i<shipArray.length; i++) {
+    return true;
+  }
+  for (let i=0; i<shipArray.length; i++) {
     if (!shipArray[i].isDestroyed) {
-      return;
-    } else {
-      console.log("Game Over");
+      return false;
     }
   }
+  return true;
+}
+
+export const showGameOver = (gameOverMessage, ships) => {
+  gameOverMessage.style.display = "block";
+  ships.style.display = "none";
 }
