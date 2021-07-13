@@ -1,9 +1,10 @@
-class Ship {
-  constructor(name, points, pointsLossOnHit) {
+export default class Ship {
+  constructor(name, points, pointsLossOnHit, uniqueID) {
     this.name = name;
     this.points = points;
     this.pointsLossOnHit = pointsLossOnHit;
-    this.destroyed = false;
+    this.uniqueID = uniqueID;
+    this.isDestroyed = false;
   }
 
   reducePointsOnHit() {
@@ -12,10 +13,8 @@ class Ship {
 
   checkIfShipDestroyed() {
     if (this.points <= 0) {
-    this.destroyed = true;
+      this.isDestroyed = true;
     }
   }
 }
-
-export default Ship;
 
