@@ -7,6 +7,11 @@ export const generateShipHTML = (shipObject) => {
   `
 }
 
+export const displayShipHTML = () => {
+  const shipHTML = shipArray.map((ship) => generateShipHTML(ship)).join("");
+  ships.innerHTML = shipHTML;
+}
+
 export const generateRandomShipNumber = (max) => {
   return Math.floor(Math.random() * max);
 }

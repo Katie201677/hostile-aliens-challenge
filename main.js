@@ -1,5 +1,5 @@
 import Ship from "./classes.js";
-import { generateShipHTML, generateRandomShipNumber, checkIfGameOver, showGameOver } from './helperFunctions.js';
+import { generateShipHTML, generateRandomShipNumber, checkIfGameOver, showGameOver, displayShipHTML } from './helperFunctions.js';
 
 const attackShipNumber = 1;
 const defenceShipNumber = 1;
@@ -26,11 +26,6 @@ const populateShipArray = () => {
   }
 }
 populateShipArray();
-
-const displayShipHTML = () => {
-  const shipHTML = shipArray.map((ship) => generateShipHTML(ship)).join("");
-  ships.innerHTML = shipHTML;
-}
 displayShipHTML();
 
 const addHitClassToHitShip = (uniqueID) => {
