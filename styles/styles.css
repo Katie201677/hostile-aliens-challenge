@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header__h1 {
+  font-family: "Press Start 2P", cursive;
+}
+
+.header {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.ships {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.ships__ship {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.hit {
+  background-color: red;
+}
+
+.destroyed {
+  background-colour: blue;
+}
+
+.gameOver {
+  display: none;
+}

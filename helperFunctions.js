@@ -1,21 +1,3 @@
-export const generateShipHTML = (shipObject) => {
-  return `
-  <div class="ships__ship" id="${shipObject.uniqueID}">
-    <h2>${shipObject.name}</h2>
-    <p>Remaining points: ${shipObject.points}</p>
-  </div>
-  `
-}
-
-export const displayShipHTML = () => {
-  const shipHTML = shipArray.map((ship) => generateShipHTML(ship)).join("");
-  ships.innerHTML = shipHTML;
-}
-
-export const generateRandomShipNumber = (max) => {
-  return Math.floor(Math.random() * max);
-}
-
 export const checkIfGameOver = (shipArray) => {
   if (shipArray[0].isDestroyed ) {
     return true;
@@ -26,6 +8,19 @@ export const checkIfGameOver = (shipArray) => {
     }
   }
   return true;
+}
+
+export const generateRandomShipNumber = (max) => {
+  return Math.floor(Math.random() * max);
+}
+
+export const generateShipHTML = (shipObject) => {
+  return `
+  <div class="ships__ship" id="${shipObject.uniqueID}">
+    <h2>${shipObject.name}</h2>
+    <p>Remaining points: ${shipObject.points}</p>
+  </div>
+  `
 }
 
 export const showGameOver = (gameOverMessage, ships) => {

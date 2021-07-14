@@ -1,5 +1,5 @@
 import Ship from "./classes.js";
-import { generateShipHTML, generateRandomShipNumber, checkIfGameOver, showGameOver, displayShipHTML } from './helperFunctions.js';
+import { generateShipHTML, generateRandomShipNumber, checkIfGameOver, showGameOver } from './helperFunctions.js';
 
 const attackShipNumber = 1;
 const defenceShipNumber = 1;
@@ -26,6 +26,11 @@ const populateShipArray = () => {
   }
 }
 populateShipArray();
+
+const displayShipHTML = () => {
+  const shipHTML = shipArray.map((ship) => generateShipHTML(ship)).join("");
+  ships.innerHTML = shipHTML;
+}
 displayShipHTML();
 
 const addHitClassToHitShip = (uniqueID) => {
@@ -33,20 +38,17 @@ const addHitClassToHitShip = (uniqueID) => {
   hitShipHTML.classList.add("hit");
 }
 
-const removeDestroyedShipFromGame = (hitShip, index) => {
+const resetView = (hitShip, index) => {
+  removeDestroyedShipFromGame(hitShip, index);
+  displayShipHTML();
+}
+
+export const removeDestroyedShipFromGame = (hitShip, index) => {
   if (hitShip.isDestroyed) {
     shipArray.splice(index, 1);
     count -= 1;
   };
 }
-
-const resetView = (hitShip, index) => {
-  removeDestroyedShipFromGame(hitShip, index);
-  displayShipHTML();
-  console.log(shipArray);
-}
-
-
 
 shootButton.addEventListener("click", () => {
   const index = generateRandomShipNumber(count);
