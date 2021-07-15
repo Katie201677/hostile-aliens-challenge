@@ -24,19 +24,19 @@ var count = defenceShipNumber + attackShipNumber + 1;
 var shipArray = [];
 
 var populateShipArray = function populateShipArray() {
-  shipArray.push(new _classes["default"]("Mother Ship", 10, 9, "Ship1", "MotherShip"));
+  shipArray.push(new _classes["default"]("Mother Ship", 100, 9, "Ship1", "MotherShip"));
   var count = 2;
 
   for (var i = 1; i <= defenceShipNumber; i++) {
     var name = "Defence Ship ".concat(i);
-    shipArray.push(new _classes["default"](name, 10, 10, "Ship".concat(count), "DefenceShip"));
+    shipArray.push(new _classes["default"](name, 80, 10, "Ship".concat(count), "DefenceShip"));
     count++;
   }
 
   for (var _i = 1; _i <= attackShipNumber; _i++) {
     var _name = "Attack Ship ".concat(_i);
 
-    shipArray.push(new _classes["default"](_name, 15, 12, "Ship".concat(count), "AttackShip"));
+    shipArray.push(new _classes["default"](_name, 45, 12, "Ship".concat(count), "AttackShip"));
     count++;
   }
 };

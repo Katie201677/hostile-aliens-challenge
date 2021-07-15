@@ -15,16 +15,16 @@ let count = defenceShipNumber + attackShipNumber + 1;
 let shipArray = [];
 
 const populateShipArray = () => {
-  shipArray.push(new Ship("Mother Ship", 10, 9, "Ship1", "MotherShip"));
+  shipArray.push(new Ship("Mother Ship", 100, 9, "Ship1", "MotherShip"));
   let count = 2;
   for(let i=1; i<=defenceShipNumber; i++) {
     const name = `Defence Ship ${i}`;
-    shipArray.push(new Ship(name, 10, 10, `Ship${count}`, "DefenceShip"));
+    shipArray.push(new Ship(name, 80, 10, `Ship${count}`, "DefenceShip"));
     count++;
   }
   for(let i=1; i<=attackShipNumber; i++) {
     const name = `Attack Ship ${i}`;
-    shipArray.push(new Ship(name, 15, 12, `Ship${count}`, "AttackShip"));
+    shipArray.push(new Ship(name, 45, 12, `Ship${count}`, "AttackShip"));
     count++;
   }
 }
