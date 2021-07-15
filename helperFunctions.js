@@ -16,9 +16,9 @@ export const generateRandomShipNumber = (max) => {
 
 export const generateShipHTML = (shipObject) => {
   return `
-  <div class="ships__ship" id="${shipObject.uniqueID}">
-    <h2>${shipObject.name}</h2>
-    <p>Remaining points: ${shipObject.points}</p>
+  <div class="ships__ship ${shipObject.HTMLclass}" id="${shipObject.uniqueID}">
+    <h2 class="h2">${shipObject.name}</h2>
+    <p class="p">Remaining points: ${shipObject.points}</p>
   </div>
   `
 }

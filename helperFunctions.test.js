@@ -16,8 +16,8 @@ describe("Tests for all helper functions", () => {
     test("generates correct HTML", () => {
       expect(generateShipHTML(testShip)).toBe(`
   <div class="ships__ship" id="Ship2">
-    <h2>Test Ship</h2>
-    <p>Remaining points: 100</p>
+    <h2 class="h2">Test Ship</h2>
+    <p class="p">Remaining points: 100</p>
   </div>
   `);
     });
