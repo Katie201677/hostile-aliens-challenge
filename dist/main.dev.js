@@ -126,5 +126,4 @@ gameOverButton.addEventListener("click", function () {
   ships.style.display = "grid";
   gameOverMessage.style.display = "none";
   displayShipHTML();
-}); // play againa fter hitting mother ship - ship array not repopulating
-// style play again button
+});

@@ -12,12 +12,12 @@ describe("Tests for all helper functions", function () {
   var testShip;
   var motherShip;
   beforeEach(function () {
-    testShip = new _classes["default"]("Test Ship", 100, 10, "Ship2");
-    motherShip = new _classes["default"]("Mother Ship", 10, 9, "Ship1");
+    testShip = new _classes["default"]("Test Ship", 100, 10, "Ship2", "testClass");
+    motherShip = new _classes["default"]("Mother Ship", 10, 9, "Ship1", "testClass");
   });
   describe("Test generate HTML", function () {
     (0, _globals.test)("generates correct HTML", function () {
-      (0, _globals.expect)((0, _helperFunctions.generateShipHTML)(testShip)).toBe("\n  <div class=\"ships__ship\" id=\"Ship2\">\n    <h2 class=\"h2\">Test Ship</h2>\n    <p class=\"p\">Remaining points: 100</p>\n  </div>\n  ");
+      (0, _globals.expect)((0, _helperFunctions.generateShipHTML)(testShip)).toBe("\n  <div class=\"ships__ship testClass\" id=\"Ship2\">\n    <h2 class=\"h2\">Test Ship</h2>\n    <p class=\"p\">Remaining points: 100</p>\n  </div>\n  ");
     });
   });
   describe("Test checkIfGameOver", function () {

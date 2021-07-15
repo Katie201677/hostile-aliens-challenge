@@ -36,9 +36,6 @@ const displayShipHTML = () => {
   motherShipDiv.innerHTML = generateShipHTML(shipArray[0]);
   defenceShipDiv.innerHTML = defenceShipArray.map((ship) => generateShipHTML(ship)).join("");
   attackShipDiv.innerHTML = attackShipArray.map((ship) => generateShipHTML(ship)).join("");
-  
-  // const shipHTML = shipArray.map((ship) => generateShipHTML(ship)).join("");
-  // ships.innerHTML = shipHTML;
 }
 displayShipHTML();
 
@@ -56,7 +53,6 @@ export const removeDestroyedShipFromGame = (hitShip, index ) => {
   if (hitShip.isDestroyed) {
     shipArray.splice(index, 1);
     count -= 1;
-    console.log(shipArray);
     if (hitShip.HTMLclass === "DefenceShip") {
       let hitIndex;
       for (let i=0; i<defenceShipArray.length; i++) {
@@ -80,10 +76,7 @@ export const removeDestroyedShipFromGame = (hitShip, index ) => {
 
 shootButton.addEventListener("click", () => {
   const index = generateRandomShipNumber(count);
-  console.log(index);
   const hitShip = shipArray[index];
-  console.log(hitShip);
-  console.log(shipArray);
   hitShip.reducePointsOnHit();
   hitShip.checkIfShipDestroyed();
   addHitClassToHitShip(hitShip.uniqueID);
@@ -102,7 +95,3 @@ gameOverButton.addEventListener("click", () => {
   gameOverMessage.style.display = "none";
   displayShipHTML();
 })
-
-
-// play againa fter hitting mother ship - ship array not repopulating
-// style play again button

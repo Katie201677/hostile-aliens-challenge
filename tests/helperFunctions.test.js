@@ -1,5 +1,5 @@
-import { checkIfGameOver, generateShipHTML } from './helperFunctions';
-import Ship from "./classes";
+import { checkIfGameOver, generateShipHTML } from '../scripts/helperFunctions';
+import Ship from "../scripts/classes";
 import { expect, test } from '@jest/globals';
 
 describe("Tests for all helper functions", () => {
@@ -7,15 +7,15 @@ describe("Tests for all helper functions", () => {
   let motherShip;
 
   beforeEach(() => {
-    testShip = new Ship("Test Ship", 100, 10, "Ship2");
-    motherShip = new Ship("Mother Ship", 10, 9, "Ship1");
+    testShip = new Ship("Test Ship", 100, 10, "Ship2", "testClass");
+    motherShip = new Ship("Mother Ship", 10, 9, "Ship1", "testClass");
     
   });
 
   describe("Test generate HTML", () => {
     test("generates correct HTML", () => {
       expect(generateShipHTML(testShip)).toBe(`
-  <div class="ships__ship" id="Ship2">
+  <div class="ships__ship testClass" id="Ship2">
     <h2 class="h2">Test Ship</h2>
     <p class="p">Remaining points: 100</p>
   </div>
