@@ -1,6 +1,6 @@
 @use "./variables.scss" as *;
 
-.shootButton {
+.button {
   border-radius: 3px;
   display: block;
   font-family: $font-display;
@@ -32,6 +32,3 @@
   background-color: red;
 }
 
-.destroyed {
-  background-colour: blue;
-}

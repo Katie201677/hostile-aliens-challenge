@@ -18,7 +18,7 @@
   font-size: 0.5em;
 }
 
-.shootButton {
+.button {
   border-radius: 3px;
   display: block;
   font-family: "Press Start 2P", cursive;
@@ -46,10 +46,6 @@
 
 .hit {
   background-color: red;
-}
-
-.destroyed {
-  background-colour: blue;
 }
 
 .body {
@@ -89,7 +85,11 @@
 
 .gameOver {
   display: none;
+  margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
+  text-align: center;
+}
+.gameOver__h2 {
+  margin-bottom: 20px;
 }

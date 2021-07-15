@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
-.shootButton {
+.button {
   border-radius: 3px;
   display: block;
   font-family: "Press Start 2P", cursive;
@@ -27,8 +27,4 @@
 
 .hit {
   background-color: red;
-}
-
-.destroyed {
-  background-colour: blue;
 }
