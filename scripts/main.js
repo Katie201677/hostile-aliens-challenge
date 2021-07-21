@@ -1,8 +1,8 @@
 import Ship from "./classes.js";
-import { generateShipHTML, generateRandomShipNumber, checkIfGameOver, showGameOver } from './helperFunctions.js';
+import { generateRandomShipNumber, checkIfGameOver, showGameOver } from './helperFunctions.js';
 
-const attackShipNumber = 8;
-const defenceShipNumber = 5;
+const attackShipNumber = 8; 
+const defenceShipNumber = 5; 
 const gameOverButton = document.querySelector(".gameOver__button");
 const gameOverMessage = document.querySelector(".gameOver");
 const ships = document.querySelector(".ships");
@@ -11,7 +11,7 @@ const defenceShipDiv = document.querySelector(".ships__defenceships");
 const attackShipDiv = document.querySelector(".ships__attackships");
 
 const shootButton = document.querySelector(".shootButton");
-let count = defenceShipNumber + attackShipNumber + 1;
+let count = defenceShipNumber + attackShipNumber +1;
 let shipArray = [];
 
 const populateShipArray = () => {
@@ -33,9 +33,9 @@ let defenceShipArray = shipArray.slice(1, 6);
 let attackShipArray = shipArray.slice(6);
 
 const displayShipHTML = () => {
-  motherShipDiv.innerHTML = generateShipHTML(shipArray[0]);
-  defenceShipDiv.innerHTML = defenceShipArray.map((ship) => generateShipHTML(ship)).join("");
-  attackShipDiv.innerHTML = attackShipArray.map((ship) => generateShipHTML(ship)).join("");
+  motherShipDiv.innerHTML = shipArray[0].generateShipHTML();
+  defenceShipDiv.innerHTML = defenceShipArray.map((ship) => ship.generateShipHTML()).join("");
+  attackShipDiv.innerHTML = attackShipArray.map((ship) => ship.generateShipHTML()).join("");
 }
 displayShipHTML();
 
@@ -47,35 +47,30 @@ const addHitClassToHitShip = (uniqueID) => {
 const resetView = (hitShip, index) => {
   removeDestroyedShipFromGame(hitShip, index);
   displayShipHTML();
+  shootButton.disabled = false;
+  console.log(`count is ${count}`);
 }
 
-export const removeDestroyedShipFromGame = (hitShip, index ) => {
+const removeDestroyedShipFromGame = (hitShip, index ) => {
   if (hitShip.isDestroyed) {
     shipArray.splice(index, 1);
     count -= 1;
-    if (hitShip.HTMLclass === "DefenceShip") {
-      let hitIndex;
-      for (let i=0; i<defenceShipArray.length; i++) {
-        if (defenceShipArray[i].uniqueID === hitShip.uniqueID) {
-          hitIndex = i;
-        }
-      }
-      defenceShipArray.splice(hitIndex, 1);
-    } else if (hitShip.HTMLclass === "AttackShip") {
-      let hitIndex;
-      for (let i=0; i<attackShipArray.length; i++) {
-        if (attackShipArray[i].uniqueID === hitShip.uniqueID) {
-          hitIndex = i;
-        }
-      }
-      attackShipArray.splice(hitIndex, 1);
     
-    };
+    if (hitShip.HTMLclass === "DefenceShip") {
+      const hitIndex = defenceShipArray.findIndex(ship => ship.uniqueID === hitShip.uniqueID);
+      defenceShipArray.splice(hitIndex, 1);
+
+    } else if (hitShip.HTMLclass === "AttackShip") {
+        const hitIndex = attackShipArray.findIndex(ship => ship.uniqueID === hitShip.uniqueID);
+        attackShipArray.splice(hitIndex, 1);
+    }
   }
 }
 
 shootButton.addEventListener("click", () => {
+  shootButton.disabled = true;
   const index = generateRandomShipNumber(count);
+  console.log(index);
   const hitShip = shipArray[index];
   hitShip.reducePointsOnHit();
   hitShip.checkIfShipDestroyed();
@@ -87,6 +82,7 @@ shootButton.addEventListener("click", () => {
 })
 
 gameOverButton.addEventListener("click", () => {
+  count = defenceShipNumber + attackShipNumber + 1;
   shipArray = [];
   populateShipArray();
   defenceShipArray = shipArray.slice(1, 6);

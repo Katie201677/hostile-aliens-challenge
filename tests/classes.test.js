@@ -10,11 +10,13 @@
 //     }
 //   }
 // }
+// change test command in package.json: "scripts": {
+  // "test": "jest"
 // npm test -- --watch
 
 
 // import { expect, test } from '@jest/globals';
-import Ship from './classes';
+import Ship from '../scripts/classes';
 
 describe("Tests for Ship class", () => {
   let testShip; // add to global scope for all tests

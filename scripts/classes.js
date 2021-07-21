@@ -17,5 +17,14 @@ export default class Ship {
       this.isDestroyed = true;
     }
   }
+
+  generateShipHTML() {
+    return `
+    <div class="ships__ship ${this.HTMLclass}" id="${this.uniqueID}">
+      <h2 class="h2">${this.name}</h2>
+      <p class="p">Remaining points: ${this.points}</p>
+    </div>
+    `
+  }
 }
 
