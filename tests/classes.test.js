@@ -16,13 +16,14 @@
 
 
 // import { expect, test } from '@jest/globals';
+import { describe } from '@jest/globals';
 import Ship from '../scripts/classes';
 
 describe("Tests for Ship class", () => {
   let testShip; // add to global scope for all tests
 
   beforeEach(() => {
-    testShip = new Ship("Test Ship", 100, 10);
+    testShip = new Ship("Test Ship", 100, 10, "Ship2", "testClass");
   }); // instantiate new ship for each test
   
   describe("Correctly instantiates Ship object", () => {
@@ -48,5 +49,16 @@ describe("Tests for Ship class", () => {
       destroyedShip.checkIfShipDestroyed();
       expect(destroyedShip.isDestroyed).toBe(true);
     })
-  })  
+  })
+  
+  describe("Test generate HTML", () => {
+    test("generates correct HTML", () => {
+    const noWhiteSpaceHtml = testShip.generateShipHTML().replace(/\s/g, "");
+    expect(noWhiteSpaceHtml).toBe(`
+    <div class="ships__ship testClass" id="Ship2">
+      <h2 class="h2">Test Ship</h2>
+      <p class="p">Remaining points: 100</p>
+    </div>`.replace(/\s/g, ""));
+    });
+  });
 })

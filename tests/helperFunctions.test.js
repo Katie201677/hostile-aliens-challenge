@@ -12,17 +12,6 @@ describe("Tests for all helper functions", () => {
     
   });
 
-  describe("Test generate HTML", () => {
-    test("generates correct HTML", () => {
-      expect(generateShipHTML(testShip)).toBe(`
-  <div class="ships__ship testClass" id="Ship2">
-    <h2 class="h2">Test Ship</h2>
-    <p class="p">Remaining points: 100</p>
-  </div>
-  `);
-    });
-  });
-
   describe("Test checkIfGameOver", () => {
 
     test("returns true if MotherShip destroyed", () => {
@@ -38,6 +27,14 @@ describe("Tests for all helper functions", () => {
       testShipArray.push(motherShip, testShip);
       expect(checkIfGameOver(testShipArray)).toBe(false);
     })
+
+    test("returns true if MotherShip destroyed", () => {
+      motherShip.isDestroyed = false;
+      testShip.isDestroyed = true;
+      let testShipArray = [];
+      testShipArray.push(motherShip, testShip);
+      expect(checkIfGameOver(testShipArray)).toBe(false);
+    });
   });
 });
 

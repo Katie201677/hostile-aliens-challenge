@@ -2,12 +2,10 @@ export const checkIfGameOver = (shipArray) => {
   if (shipArray[0].isDestroyed ) {
     return true;
   }
-  for (let i=0; i<shipArray.length; i++) {
-    if (!shipArray[i].isDestroyed) {
-      return false;
-    }
+  if (shipArray.every((ship) => ship.isDestroyed)) {
+    return true;
   }
-  return true;
+  return false;
 }
 
 export const generateRandomShipNumber = (max) => {
